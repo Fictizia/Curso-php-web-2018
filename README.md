@@ -22,7 +22,7 @@ Teoría y Recursos
 =================
 Teoría | Recursos | Contenido
 ------------ | ------------- | -------------
-[Clase 1] | [Clase 1] | Intro al Curso. Php en linea de comando. Primer script y primer test. Php en web. Primera pagina con html embebido.
+[Clase 1] (/teoria/Clase1.md) | [Clase 1] | Intro al Curso. Php en linea de comando. Primer script y primer test. Php en web. Primera pagina con html embebido.
 [Clase 2] | [Clase 2] | 
 [Clase 3] | [Clase 3] | 
 [Clase 4] | [Clase 4] | 
