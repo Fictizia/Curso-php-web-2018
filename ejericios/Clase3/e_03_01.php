@@ -18,6 +18,3 @@
     </p>
 </body>
 </html>
-
-
-</<!DOCTYPE html>

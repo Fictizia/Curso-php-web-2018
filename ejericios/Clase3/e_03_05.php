@@ -18,11 +18,9 @@
             'hola' => 'verano',
             'hastaluego' => 'cocodrilo',
         ];
-        
+        $key = count($array);
+        echo $key;
         //count aqui
     ?>
 </body>
 </html>
-
-
-</<!DOCTYPE html>
