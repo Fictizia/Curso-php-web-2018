@@ -18,10 +18,7 @@
             'hola' => 'verano',
             'hastaluego' => 'cocodrilo',
         ];
-        
-        echo $array['hola'] . PHP_EOL;
-        echo $array['adios'] . PHP_EOL;
-        echo $array['hastaluego'] . PHP_EOL;
+        //tu codigo aqui
     ?>
 </body>
 </html>

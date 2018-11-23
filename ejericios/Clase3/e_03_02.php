@@ -14,11 +14,7 @@
     <p>
         <?php
             $valor = 'soy';
-            if ($valor === 'soy') {
-                echo 'Sí que soy';
-            } else {
-                echo 'No soy :_(';
-            }
+            //pon aqui un if
         ?>
     </p>
 </body>

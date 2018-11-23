@@ -12,10 +12,7 @@
 </head>
 <body>
     <?php
-        for ($i=1; $i<6; $i++) 
-        {
-            echo "<h$i>hola soy una patata</h$i>";
-        }
+        //tu codigo aqui
     ?>
 </body>
 </html>

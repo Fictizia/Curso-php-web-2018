@@ -19,11 +19,7 @@
             'hastaluego' => 'cocodrilo',
         ];
         
-        if (count($array) > 0) {
-            echo 'tengo algun elemento';
-        } else {
-            echo 'no tengo ningun elemento';
-        }
+        //count aqui
     ?>
 </body>
 </html>
