@@ -12,15 +12,31 @@
 </head>
 <body>
     <!-- tu form aqui !-->
+    <form action="#" method="post">
+    <p>Numero: <input type="text" name="numero" /></p>
+    <p><input type="submit" /></p>
+    </form>
+
+    <?php
+        $n = (int)$_POST['numero'];
+
+        $factorial = 1;
+
+        for($i = $n; $i > 0; $i--) {
+             $factorial = $factorial * $i;
+        }
+        echo $factorial;
+    ?>
     <!-- ejercicio :
         Haz un form que solicite un numero
         imprime el factorial de ese numero
     !-->
     <!--  
-        factorial <- 0
-        para ( i <-n ; mientras i > 0 ; i <- i +1  )
+        factorial <- 1
+        para ( i <-n ; mientras i > 0 ; i <- i -1  )
             factorial <- factorial * 1
-           
+
+        imprimir resultado   
     !-->
 </body>
 </html>
