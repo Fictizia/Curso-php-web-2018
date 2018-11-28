@@ -12,15 +12,18 @@
 </head>
 <body>
     <!-- tu form aqui !-->
+    
     <!-- ejercicio :
         Haz un form que solicite un numero
-        imprime el factorial de ese numero
+        recoge e imprime el factorial de ese numero
     !-->
+
     <!--  
-        factorial <- 0
+        factorial <- 1
         para ( i <-n ; mientras i > 0 ; i <- i +1  )
-            factorial <- factorial * 1
+            factorial <- factorial * i
            
+        imprime i
     !-->
 </body>
 </html>
