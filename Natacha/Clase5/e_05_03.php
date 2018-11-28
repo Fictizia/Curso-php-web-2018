@@ -28,9 +28,11 @@
         Dada nuestra fuente de datos 'datasource':
         mostrar por pantalla en una lista las chicas y en otra lista los chicos
     !-->
-    <h1>Solo chicas</h1>
+    <h2>Solo chicas</h2>
     <ul>
         <?php
+        include_once ('datasource.php');
+
         foreach ($userArray as $row)
         {
             if ($row['sexo'] == 'F')
@@ -39,6 +41,18 @@
             }
         }
         ?>
+    </ul>
+    <h2>Solo chicos</h2>
     <ul>
+    <?php       
+        foreach ($userArray as $row)
+        {
+            if ($row['sexo'] == 'M')
+            {
+                echo "<li>{$row['usuario']}: {$row['email']}</li>";
+            }
+        }
+        ?>
+        </ul>
     </body>
 </html>

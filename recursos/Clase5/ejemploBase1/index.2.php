@@ -9,7 +9,13 @@ include_once ('datasource.php');
     {
         if ($row['sexo'] == 'F')
         {
-            echo "<li>{$row['usuario']}: {$row['email']}</li>";
+            //echo "<li>{$row['usuario']}: {$row['email']}</li>";
+            //var_dump($row['tareas']);
+            $segundoArray = $row['tareas'];
+            foreach($segundoArray as $tareas){
+                echo $tareas;
+                echo '<br />';
+            }
         }
     }
     ?>

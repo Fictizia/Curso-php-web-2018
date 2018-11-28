@@ -47,6 +47,27 @@
     !-->
 
     <?php
+        $pajar = $_GET;
+        
+        $aguja = 'a';
+
+        $i = 0;
+        foreach ($_GET as $key => $value ){
+            $pos = strpos($key,$aguja);
+            if ($pos !== false){
+                echo "encontrado parametro: $key con valor $value";
+                $i++;
+            }
+        }
+        if ($i == 0) {
+            echo "no hay keys con la letra $aguja";
+        }
+        if (count($_GET) == 0) {
+            echo 'no hay parametros en la url';
+        }
+
+
+
         // Los parametros en la url se recogen en la variable superglobal $_GET
         // http://php.net/manual/es/language.variables.external.php
         // como no vamos a usar el post, no necesitamos form
