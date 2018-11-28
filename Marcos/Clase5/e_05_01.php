@@ -57,16 +57,6 @@
         // para saber si una cadena contiene otro cadena, usamos la funcion strpos:
         // http://php.net/manual/es/function.strpos.php
         // como tenemos que comprobar una condicion, usamos la estructura de control if
-
-        // empezamos
-        // Recorremos los parametros, que son elementos en el bucle GET
-        foreach ($_GET as $parameter => $value) {
-            $doesItHaveAnA = strpos($parameter, 'a');
-            if ($doesItHaveAnA !== false) {
-                echo "encontrado parametro: {$parameter} con valor {$value}</br>";
-            }
-        }
-
     ?>
     </body>
 </html>
