@@ -12,6 +12,7 @@
 </head>
 <body>
     <!-- tu form aqui !-->
+<<<<<<< HEAD
     <form action="#" method="post">
     <p>Numero: <input type="text" name="numero" /></p>
     <p><input type="submit" /></p>
@@ -27,16 +28,27 @@
         }
         echo $factorial;
     ?>
+=======
+    
+>>>>>>> 84540ea4aaa6081c7e743dc77c051b310cefb6e3
     <!-- ejercicio :
         Haz un form que solicite un numero
-        imprime el factorial de ese numero
+        recoge e imprime el factorial de ese numero
     !-->
+
     <!--  
         factorial <- 1
+<<<<<<< HEAD
         para ( i <-n ; mientras i > 0 ; i <- i -1  )
             factorial <- factorial * 1
 
         imprimir resultado   
+=======
+        para ( i <-n ; mientras i > 0 ; i <- i +1  )
+            factorial <- factorial * i
+           
+        imprime i
+>>>>>>> 84540ea4aaa6081c7e743dc77c051b310cefb6e3
     !-->
 </body>
 </html>
