@@ -15,15 +15,4 @@ include_once ('datasource.php');
     ?>
 <ul>
 
-<h1>Solo chicos</h1>
-<ul>
-    <?php
-    foreach ($userArray as $row)
-    {
-        if ($row['sexo'] == 'M')
-        {
-            echo "<li>{$row['usuario']}: {$row['email']}</li>";
-        }
-    }
-    ?>
 </ul>

@@ -2,7 +2,7 @@
     include_once ('datasource.php');
 ?>
 
-<h1>solo chicas</h1>
+<h1>solo chicas con un while</h1>
 <ul>
     <?php
     $continue = true;
