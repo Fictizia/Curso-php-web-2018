@@ -15,10 +15,13 @@
         <?php
             $valor = 'soy';
             //pon aqui un if
+            if ($valor==='soy') {
+                echo 'Si soy yo';
+            } else {
+                echo 'No soy yo';
+            }
+
         ?>
     </p>
 </body>
 </html>
-
-
-</<!DOCTYPE html>

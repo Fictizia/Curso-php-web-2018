@@ -8,10 +8,8 @@
     <head>
         <meta charset="utf-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Page Title</title>
+        <title>Ejercicio 2</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
-        <script src="main.js"></script>
     </head>
 
     <body>
@@ -28,8 +26,29 @@
         Dada nuestra fuente de datos 'datasource':
         mostrar por pantalla todos los usuarios y su numero de tareas
     !-->
-    <?php
     
-    ?>
+        <?php
+        /*
+            [
+                'usuario' => 'maria gonzalez', 
+                'email' => 'mariag@fakemail.com',
+                'sexo' => 'F',
+                'tareas' => [
+                    'hacer ejercicio de java'
+                ],
+            ],
+        */
+
+        include_once ('datasource.php');
+        echo '<ul>';
+        foreach ($userArray as $row)
+        {
+            echo "<li>{$row['usuario']}";
+            $tareas = $row['tareas'];
+            $nTareas = count($tareas);
+            echo " tiene $nTareas pendientes</li>";
+        }
+        echo '</ul>';
+        ?>
     </body>
 </html>
