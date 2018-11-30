@@ -28,7 +28,28 @@
         Dada nuestra fuente de datos 'datasource':
         mostrar por pantalla todos los usuarios y su numero de tareas
     !-->
+    
+
+<ul>
     <?php
+    include_once ('datasource.php');
+
+    foreach ($userArray as $row)
+    {
+        echo "<li>{$row['usuario']}: {$row['email']}: {$row['tareas']}</li>";
+    }
+    ?>
+</ul>
+
+
+
+
+
+    
+
+
+
+
     ?>
     </body>
 </html>

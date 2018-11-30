@@ -46,7 +46,29 @@
         Se admiten PR si hay comentarios, documentación y buenas prácticas :)
     !-->
 
+  
     <?php
+
+    foreach ($_GET as $parameter => $value) {
+
+
+        $buscarA = strpos($parameter, 'a');
+        if ($buscarA !== false) {
+
+            echo "encontrando parametro: {$parameter} con valor {$value}</br>";
+
+        }
+    }
+
+    
+
+    
+
+
+
+
+
+
         // Los parametros en la url se recogen en la variable superglobal $_GET
         // http://php.net/manual/es/language.variables.external.php
         // como no vamos a usar el post, no necesitamos form
