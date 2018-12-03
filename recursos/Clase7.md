@@ -48,4 +48,10 @@ INSERT INTO `clase7`.`users` (`name`, `email`, `sexo`) VALUES ('paqui', 'paqui@f
 INSERT INTO `clase7`.`users` (`name`, `email`, `sexo`) VALUES ('antonio', 'antonio@fakemail.com', 'M');
 ```
 
+* como ver la estructura con la que creé una tabla 
+```
+
+SHOW CREATE TABLE users;
+```
+
 
