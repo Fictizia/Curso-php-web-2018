@@ -18,10 +18,11 @@
             'hola' => 'verano',
             'hastaluego' => 'cocodrilo',
         ];
-        //tu codigo aqui
+        
+        echo '<p>Esto es un '. $array['hola'].'</p>';
+        echo '<p>Esto es un '. $array['adios'].'</p>';
+        echo '<p>Esto es un '. $array['hastaluego'].'</p>';
+
     ?>
 </body>
 </html>
-
-
-</<!DOCTYPE html>

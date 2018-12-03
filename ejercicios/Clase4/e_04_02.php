@@ -12,6 +12,23 @@
 </head>
 <body>
     <!-- tu form aqui !-->
+    <form action="" method="post">
+    <p>Ovejas: <input type="text" name="numero" /></p>
+    <p><input type="submit" /></p>
+    </form>
+
+    <?php
+        $n = (int)$_POST['numero'];
+
+        echo "Mostrando $n ovejas<br />";
+
+        for($i = $n; $i > 0; $i--) {
+            echo '<img src="images/Oveja.jpg" width="100" />';
+        }
+        foreach($_GET as $key => $value){
+            echo "Clave $key tiene el valor $value</br>";
+        }
+    ?>
     <!-- ejercicio :
         Haz un form que solicite un numero
         pinta tantas ovejas como haya contado ese numero
@@ -20,5 +37,9 @@
         para ( i <-n ; mientras i > 0 ; i <- i +1  )
             dibuja oveja
     !-->
+    <!-- de un listado de valores ver los que contienen la letra a y mostrar el valor de esos
+        strpos = posicion o false
+
+-->
 </body>
 </html>
