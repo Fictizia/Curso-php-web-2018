@@ -44,11 +44,11 @@
     }
 
     if ($user && $isAPost) {
-        $userToUpdate = $userRepository::createFromVariables($userName, $userEmail, $userSex);
+        $userToUpdate = $userRepository::createFromVariables($userId, $userName, $userEmail, $userSex);
         $updated = $userRepository->update($userToUpdate);
         if ($updated) {
             $user = $userRepository->getByEmail($userEmail);
-            echo "<p>usuario modicado: PINTA AQUI LOS DATOS</p>";
+            echo "<p>usuario modicado: @TODO PINTA AQUI LOS DATOS</p>";
         } else {
             echo "<p>usuario no pudo ser modificado</p>";
             echo "<p>{$conn->err}</p>";

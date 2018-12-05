@@ -37,11 +37,11 @@
     if ($isAPost) {
         $user = $userRepository->getByEmail($userEmail);
         if (!$user) {
-            $newUser = $userRepository::createFromVariables($userName, $userEmail, $userSex);
+            $newUser = $userRepository::createFromVariables(null, $userName, $userEmail, $userSex);
             $created = $userRepository->insert($newUser);
             if ($created) {
                 $user = $userRepository->getByEmail($userEmail);
-                echo "<p>usuario creado con id PON AQUI EL ID DEL USUARIO </p>";
+                echo "<p>usuario creado con id @TODO PON AQUI EL ID DEL USUARIO </p>";
             } else {
                 echo "<p>usuario no pudo ser creado</p>";
                 echo "<p>{$conn->err}</p>";
