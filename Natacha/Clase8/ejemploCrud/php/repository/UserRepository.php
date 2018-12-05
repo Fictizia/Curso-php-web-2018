@@ -19,9 +19,10 @@ Class UserRepository
         return $newUser;
     }
     
-    public static function createFromVariables($name, $email, $sexo) 
+    public static function createFromVariables($id, $name, $email, $sexo) 
     {
         $newUser = new User();
+        $newUser->setId($id);
         $newUser->setName($name);
         $newUser->setEmail($email);
         $newUser->setSexo($sexo);
@@ -56,7 +57,7 @@ Class UserRepository
 
     public function getByEmail($id)
     {
-        //TODO - crea este codigo
+        //@TODO - crea este codigo
         return null;      
     }
 
@@ -67,7 +68,7 @@ Class UserRepository
         return $result;      
     }
 
-    public function create($user)
+    public function insert($user)
     {
         $sql = "INSERT INTO `clase8`.`users` 
                     (`name`, `email`, `sexo`) 
@@ -87,7 +88,7 @@ Class UserRepository
                 SET 
                     name = '{$user->getName()}',
                     email = '{$user->getEmail()}',
-                    sex = '{$user->getSexo()}'   
+                    sexo = '{$user->getSexo()}'   
                 WHERE id = {$user->getId()}
                 ";
         $result = $this->dbConnection->query($sql);

@@ -15,6 +15,15 @@
     
     $userId = $_GET['user'];
     $user = $userRepository->getById($userId);
+     
+    $userName = $_POST['name'];
+    $userEmail = $_POST['email'];
+    $userSex = $_POST['sex'];
+
+    $isAPost = false;
+    if ($userName && $userEmail && $userSex) {
+        $isAPost = true;
+    }
 ?>
 
 <h1>UPDATE User con ID PON AQUI LA ID</h1>
@@ -34,14 +43,13 @@
         echo "user not found with id: {$userId}</p>";
     }
 
-    if ($user) {
-        $userToUpdate = $userRepository::createFromVariables($userName, $userEmail, $userSex);
+    if ($user && $isAPost) {
+        $userToUpdate = $userRepository::createFromVariables($userId, $userName, $userEmail, $userSex);
         $updated = $userRepository->update($userToUpdate);
         if ($updated) {
             $user = $userRepository->getByEmail($userEmail);
-            echo "<p>usuario modicado: PINTA AQUI LOS DATOS</p>";
+            echo "<p>usuario modicado: @TODO PINTA AQUI LOS DATOS</p>";
         } else {
-            var_dump($user);
             echo "<p>usuario no pudo ser modificado</p>";
             echo "<p>{$conn->err}</p>";
         }
