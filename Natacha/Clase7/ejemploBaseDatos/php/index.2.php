@@ -15,6 +15,8 @@
 
         $newUser->setName($row['name']);
         $newUser->setEmail($row['email']);
+        $newUser->setId($row['id']);
+        $newUser->setSexo($row['sexo']);
         
         return $newUser;
     }
@@ -30,9 +32,14 @@
             foreach ($result as $k => $row) 
             {
                 $user = createUserFromRow($row);
-
+                echo '<ul>';
                 echo "<li>name: {$user->getName()}</li>";
+                echo "<li>email: {$user->getEmail()}</li>";
+                echo "<li>id: {$user->getid()}</li>";
+                echo "<li>sexo: {$user->getSexo()}</li>";
+                echo '</ul>';
             }
         ?>
     </body>
 </html>
+
