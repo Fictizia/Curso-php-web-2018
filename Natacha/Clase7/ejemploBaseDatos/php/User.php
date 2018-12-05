@@ -36,4 +36,29 @@ Class User
     {
         $this->email = $email;
     }
+    public function getSexo()
+    {
+        /*if ($this->sexo == 'M'){
+            return 'Masculino'; 
+        } else {
+            return 'Femenino';
+        }*/
+        switch ($this->sexo){
+            case "M":
+                return "Masculino"; 
+                break;
+
+            case "F":
+                return "Femenino"; 
+                break;
+            case "N":
+                return "No Binario";
+                break;
+        }
+    }
+    public function setSexo($sexo)
+    {
+        $this->sexo = $sexo;
+    }
+
 }

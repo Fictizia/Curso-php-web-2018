@@ -12,14 +12,21 @@
 </head>
 <body>
     <!-- tu form aqui !-->
-
     <!-- ejercicio :
         Haz un form que solicite un numero
         imprime el factorial de ese numero
     !-->
     <!--
         pseudocodigo (traducir a php)
+        factorial <- 1
+        para ( i <-n ; mientras i > 0 ; i <- i -1  )
+            factorial <- factorial * 1
 
+        imprimir resultado  
+        para ( i <-n ; mientras i > 0 ; i <- i +1  )
+            factorial <- factorial * i
+           
+        imprime i
         var resultado <- 1
         para ( i <-n ; mientras i > 0 ; i <- i - 1  )
             resultado <- resultado * 1
