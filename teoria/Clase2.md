@@ -1,5 +1,6 @@
 Git!
 ===
+GIT es un repositorio de codigo, empezamos mostrando qué cosas se pueden hacer en git
 
 
 Variables, constantes y tipos de datos en php

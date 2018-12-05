@@ -16,6 +16,9 @@
         <?php
             $sql = "SELECT * FROM users";
             $result = $conn->query($sql);
+
+var_dump($result);
+die('muere');
             foreach ($result as $k => $row) 
             {
                 echo "<li>{$row['id']}: name: {$row['name']} email: {$row['email']}</li>";

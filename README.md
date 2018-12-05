@@ -23,8 +23,8 @@ Teoría y Recursos
 Teoría | Recursos | Ejercicios | Contenido
 ------------ | ------------- | ------------- | -------------
 [Clase 1](teoria/Clase1.md) | [Clase 1](recursos/Clase1.md) | [Clase 1](ejercicios/Clase1) | Intro. Linea de comandos. Php en linea de comando. Primer script y primer test. Php en web. Primera pagina con html embebido. 
-[Clase 2](teoria/Clase2.md) | [Clase 2](recursos/Clase2.md) | [Clase 2](ejercicios/Clase2) |  
-[Clase 3](teoria/Clase3.md) | [Clase 3](recursos/Clase3.md) | [Clase 3](ejercicios/Clase3) |  
+[Clase 2](teoria/Clase2.md) | [Clase 2](recursos/Clase2.md) | [Clase 2](ejercicios/Clase2) |  Git. Tipos de datos. Estrucutras de control. Imprimir datos a la salida
+[Clase 3](teoria/Clase3.md) | [Clase 3](recursos/Clase3.md) | [Clase 2](ejercicios/Clase3) |  
 [Clase 4](teoria/Clase4.md) | [Clase 4](recursos/Clase4.md) | [Clase 4](ejercicios/Clase4) | 
 [Clase 5](teoria/Clase5.md) | [Clase 5](recursos/Clase5.md) | [Clase 5](ejercicios/Clase5) | 
 [Clase 6](teoria/Clase6.md) | [Clase 6](recursos/Clase6.md) | [Clase 6](ejercicios/Clase6)Docker, instalación, uso. Levantar un Mysql. Conectar con un gestor de BBDD. Retro |  
