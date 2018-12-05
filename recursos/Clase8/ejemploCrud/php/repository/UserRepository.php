@@ -9,7 +9,7 @@ Class UserRepository
         $this->dbConnection = $dbConnection;
     }
 
-    public static function createFromRow($row) 
+    public static function createUserFromRow($row) 
     {
         $newUser = new User();
         $newUser->setId($row['id']);
@@ -19,7 +19,7 @@ Class UserRepository
         return $newUser;
     }
     
-    public static function createFromVariables($name, $email, $sexo) 
+    public static function createUserFromVariables($name, $email, $sexo) 
     {
         $newUser = new User();
         $newUser->setName($name);
@@ -67,7 +67,7 @@ Class UserRepository
         return $result;      
     }
 
-    public function create($user)
+    public function insert($user)
     {
         $sql = "INSERT INTO `clase8`.`users` 
                     (`name`, `email`, `sexo`) 

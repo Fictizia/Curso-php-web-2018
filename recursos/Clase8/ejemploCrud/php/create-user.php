@@ -16,7 +16,12 @@
     $userName = $_POST['name'];
     $userEmail = $_POST['email'];
     $userSex = $_POST['sex'];
-?>
+
+    $isAPost = false;
+    if ($userName && $userEmail && $userSex) {
+        $isAPost = true;
+    }
+    ?>
 
 <h1>Create User</h1>
 
@@ -29,21 +34,22 @@
 
 <?php
 
-    $user = $userRepository->getByEmail($userEmail);
-    if (!$user) {
-        $newUser = $userRepository::createFromVariables($userName, $userEmail, $userSex);
-        $created = $userRepository->create($newUser);
-        if ($created) {
-            $user = $userRepository->getByEmail($userEmail);
-            echo "<p>usuario creado con id PON AQUI EL ID DEL USUARIO </p>";
+    if ($isAPost) {
+        $user = $userRepository->getByEmail($userEmail);
+        if (!$user) {
+            $newUser = $userRepository::createFromVariables($userName, $userEmail, $userSex);
+            $created = $userRepository->insert($newUser);
+            if ($created) {
+                $user = $userRepository->getByEmail($userEmail);
+                echo "<p>usuario creado con id PON AQUI EL ID DEL USUARIO </p>";
+            } else {
+                echo "<p>usuario no pudo ser creado</p>";
+                echo "<p>{$conn->err}</p>";
+            }
         } else {
-            echo "<p>usuario no pudo ser creado</p>";
-            echo "<p>{$conn->err}</p>";
+            echo "<p>user with email: {$userEmail} already exists</p>";
         }
-    } else {
-        echo "<p>user with email: {$userEmail} already exists</p>";
     }
-
 ?>
 <a href='./index.php'>back to main </a>
 
