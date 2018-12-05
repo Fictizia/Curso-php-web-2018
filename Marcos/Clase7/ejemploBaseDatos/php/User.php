@@ -36,4 +36,12 @@ Class User
     {
         $this->email = $email;
     }
+    public function getSexo()
+    {
+        return $this->sexo;
+    }
+    public function setSexo($sexo)
+    {
+        $this->sexo = $sexo;
+    }
 }
