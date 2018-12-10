@@ -1,12 +1,7 @@
 <?php
+    require_once('./bbdd-conn.php');
     require_once('./model/User.php');    
     require_once('./repository/UserRepository.php');
-
-    $servername = "mysql_db_C9";
-    $serverport = "3306";
-    $dbname = "clase9";
-    $username = "devuser";
-    $password = "devpass";
 
     // Create connection
     $conn = new mysqli($servername, $username, $password, $dbname, $serverport);
