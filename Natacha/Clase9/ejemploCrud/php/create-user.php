@@ -3,7 +3,7 @@
     require_once('./model/User.php');    
     require_once('./repository/UserRepository.php');
 
-    //@TODO este codigo que se repite, se puede poner en un fichero aparte
+    //@DONE este codigo que se repite, se puede poner en un fichero aparte
     //@TODO MEDIUM con estos datos, se puede crear una clase de base de datos
     //@TODO MEGATODO: Busca una base de datos Singleton y trata de que funcione en 
     //este codigo
