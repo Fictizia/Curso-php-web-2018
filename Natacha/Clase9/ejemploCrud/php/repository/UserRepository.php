@@ -58,10 +58,24 @@ Class UserRepository
         return $user;      
     }
 
-    public function getByEmail($id)
+    public function getByEmail($email)
     {
-        //@TODO - crea este codigo
-        return null;      
+        //@DONE - crea este codigo
+        $user = NULL;
+        $sql = "SELECT * FROM users WHERE email = '{$email}'";
+       
+        $result = $this->dbConnection->query($sql);
+        
+        // var_dump($this->dbConnection->error);
+        $row = $result->fetch_array();
+        // var_dump($row);
+        if ($row) {
+            $user = self::createFromRow($row);
+        }
+
+        return $user; // devolvemos un usuario (no el email)
+        // fin añadido
+        //return null;      
     }
 
     public function delete($user)

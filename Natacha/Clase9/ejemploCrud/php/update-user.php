@@ -29,12 +29,11 @@
     }
 ?>
 
-<h1>@TODO UPDATE User con ID PON AQUI LA ID</h1>
-
 <?php
-    //@TODO: aqui los datos no se refrescan bien cuando se cambian... puedes arreglarlo?
+    //@DONE: aqui los datos no se refrescan bien cuando se cambian... puedes arreglarlo?
     if ($user) {
         echo '
+            <h1>ID ' . $user->getId() .'</h1>
             <form action="update-user.php?user=' . $user->getId() .'" method="post">
                 <p>User Id: <input type="text" name="name" value="' . $user->getId() . '"/></p>
                 <p>User name: <input type="text" name="name" value="' . $user->getName() . '" /></p>
@@ -52,10 +51,14 @@
         $updated = $userRepository->update($userToUpdate);
         if ($updated) {
             $user = $userRepository->getByEmail($userEmail);
-            echo "<p>usuario modicado: @TODO PINTA AQUI LOS DATOS</p>";
+            echo "<p>usuario modicado: </p><ul>";
+            echo "<li>ID: {$user->getId()}</li>";
+            echo "<li>Nombre: {$user->getName()}</li>";
+            echo "<li>Email: {$user->getEmail()}</li>";
+            echo "<li>Sexo: {$user->getSexo()}</li></ul>";
         } else {
             echo "<p>usuario no pudo ser modificado</p>";
-            echo "<p>{$conn->err}</p>";
+            echo "<p>{$conn->error}</p>";
         }
     }
 

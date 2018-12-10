@@ -47,10 +47,10 @@
             $created = $userRepository->insert($newUser);
             if ($created) {
                 $user = $userRepository->getByEmail($userEmail);
-                echo "<p>usuario creado con id @TODO PON AQUI EL ID DEL USUARIO </p>";
+                echo "<p>usuario creado con id {$user->getId()}</p>";
             } else {
                 echo "<p>usuario no pudo ser creado</p>";
-                echo "<p>{$conn->err}</p>";
+                echo "<p>{$conn->error}</p>";
             }
         } else {
             echo "<p>user with email: {$userEmail} already exists</p>";
