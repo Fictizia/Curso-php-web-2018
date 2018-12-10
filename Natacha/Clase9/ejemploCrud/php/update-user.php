@@ -2,6 +2,7 @@
     require_once('./bbdd-conn.php');
     require_once('./model/User.php');    
     require_once('./repository/UserRepository.php');
+    require_once('./utils.php');
 
     // Create connection
     $conn = new mysqli($servername, $username, $password, $dbname, $serverport);
@@ -16,12 +17,6 @@
     $userName = $_POST['name'];
     $userEmail = $_POST['email'];
     $userSex = $_POST['sex'];
-
-    //@TODO busca la manera correcta de saber si es un get o un post
-    $isAPost = false;
-    if ($userName && $userEmail && $userSex) {
-        $isAPost = true;
-    }
 ?>
 
 <?php
@@ -41,7 +36,7 @@
         echo "user not found with id: {$userId}</p>";
     }
 
-    if ($user && $isAPost) {
+    if ($user && isAPost()) {
         $userToUpdate = $userRepository::createFromVariables($userId, $userName, $userEmail, $userSex);
         $updated = $userRepository->update($userToUpdate);
         if ($updated) {

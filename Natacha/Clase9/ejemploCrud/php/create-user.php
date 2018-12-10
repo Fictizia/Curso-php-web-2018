@@ -2,6 +2,8 @@
     require_once('./bbdd-conn.php');
     require_once('./model/User.php');    
     require_once('./repository/UserRepository.php');
+    require_once('./utils.php');
+
 
     //@DONE este codigo que se repite, se puede poner en un fichero aparte
     //@TODO MEDIUM con estos datos, se puede crear una clase de base de datos
@@ -19,11 +21,6 @@
     $userName = $_POST['name'];
     $userEmail = $_POST['email'];
     $userSex = $_POST['sex'];
-
-    $isAPost = false;
-    if ($userName && $userEmail && $userSex) {
-        $isAPost = true;
-    }
     ?>
 
 <h1>Create User</h1>
@@ -37,7 +34,7 @@
 
 <?php
 
-    if ($isAPost) {
+    if (isAPost()) {
         $user = $userRepository->getByEmail($userEmail);
         if (!$user) {
             $newUser = $userRepository::createFromVariables(null, $userName, $userEmail, $userSex);
