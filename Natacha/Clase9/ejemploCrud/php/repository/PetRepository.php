@@ -10,12 +10,14 @@ Class PetRepository
     }
 
     //@TODO MEDIUM Crear una clase para crear Usuarios desde variables o arrays
-    public static function createFromRow($row) 
+    public static function createPetFromRow($row) 
     {
         $newPet = new Pet();
         $newPet->setPetId($row['id']);
-        $newPet->setPetName($row['name']);
-        $newPet->setPetGenre($row['sexo']);
+        $newPet->setPetRace($row['raza']);
+        $newPet->setPetName($row['petname']);
+        $newPet->setPetAge($row['edad']);
+        $newPet->setPetSex($row['sexo']);
         return $newPet;
     }
     
@@ -23,8 +25,10 @@ Class PetRepository
     {
         $newPet = new Pet();
         $newPet->setPetId($id);
-        $newPet->setPetName($name);
-        $newPet->setPetGenre($sexo);
+        $newPet->setPetRace($petRace);
+        $newPet->setPetName($petName);
+        $newPet->setPetAge($petAge);
+        $newPet->setPetSex($petSex);
         return $newPet;
     }
     //estos dos metodos de arriba pueden ir en una clase que pase de arrays o 
@@ -36,7 +40,7 @@ Class PetRepository
         $result = $this->dbConnection->query($sql);
         $petArray = [];
         foreach ($result as $row) {
-            $petArray[] = self::createFromRow($row);
+            $petArray[] = self::createPetFromRow($row);
         }
 
         return $petArray;      
@@ -50,41 +54,43 @@ Class PetRepository
 
         $row = $result->fetch_array();
         if ($row) {
-            $pet = self::createFromRow($row);
+            $pet = self::createPetFromRow($row);
         }
 
         return $pet;      
     }
 
-    public function delete($uspeter)
+    public function delete($pet)
     {
-        $sql = "DELETE FROM users WHERE id = {$pet->getPetId()}";
+        $sql = "DELETE FROM pets WHERE id = {$pet->getPetId()}";
         $result = $this->dbConnection->query($sql);
         return $result;      
     }
 
     public function insert($pet)
     {
-        $sql = "INSERT INTO `clase9`.`users` 
-                    (`name`, `email`, `sexo`) 
+        $sql = "INSERT INTO `clase9`.`pets` 
+                    (`raza`, `petname`, `edad`,`sexo` )
                 VALUES (
-                     '{$user->getName()}',
-                     '{$user->getEmail()}',
-                     '{$user->getSexo()}'   
+                     '{$pet->getPetRace()}',
+                     '{$pet->getPetName()}',
+                     '{$pet->getPetAge()}',
+                     '{$pet->getPetSex()}'   
                 )";
         $result = $this->dbConnection->query($sql);
 
         return $result;      
     }
 
-    public function update($user)
+    public function update($pet)
     {
-        $sql = "UPDATE `clase9`.`users` 
+        $sql = "UPDATE `clase9`.`pets` 
                 SET 
-                    name = '{$user->getName()}',
-                    email = '{$user->getEmail()}',
-                    sexo = '{$user->getSexo()}'   
-                WHERE id = {$user->getId()}
+                    raza = '{$pet->getPetRace()}',
+                    petname = '{$pet->getPetName()}',
+                    edad = '{$pet->getPetAge()}',
+                    sexo = '{$pet->getPetSex()}'   
+                WHERE id = {$pet->getPetId()}
                 ";
         $result = $this->dbConnection->query($sql);
 
