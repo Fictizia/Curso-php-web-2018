@@ -3,8 +3,11 @@
 Class Pet
 {
     protected $id;
-    protected $petname;
-    protected $petgenre;
+    protected $petRace;
+    protected $petName;
+    protected $petSex;
+    protected $petAge;
+
 
     public function getPetId()
     {
@@ -16,23 +19,44 @@ Class Pet
         $this->id = $id;
     }
 
+    public function getPetRace()
+    {
+        return $this->petRace;
+    }
+
+    public function setPetRace($petRace)
+    {
+        $this->petRace = $petRace;
+    }
+
+
     public function getPetName()
     {
-        return $this->petname;
+        return $this->petName;
     }
 
-    public function setPetName($petname)
+    public function setPetName($petName)
     {
-        $this->petname = $petname;
+        $this->petName = $petName;
     }
 
-    public function getPetGenre()
+    public function getPetSex()
     {
-        return $this->petgenre;
+        return $this->petSex;
     }
 
-    public function setPetGenre($petgenre)
+    public function setPetSex($petSex)
     {
-        $this->petgenre = $petgenre;
+        $this->petSex = $petSex;
+    }
+
+    public function getPetAge()
+    {
+        return $this->petAge;
+    }
+
+    public function setPetAge($petAge)
+    {
+        $this->petAge = $petAge;
     }
 }
