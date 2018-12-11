@@ -14,3 +14,15 @@ Propiedades Pet
        sexo
 
     ```
+
+Propiedades
+===
+
+    ```
+    $id
+    $petRace
+    $petName
+    $petSex
+    $petAge
+
+    ```
