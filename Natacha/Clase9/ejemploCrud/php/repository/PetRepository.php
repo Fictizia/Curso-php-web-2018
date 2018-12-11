@@ -21,7 +21,7 @@ Class PetRepository
         return $newPet;
     }
     
-    public static function createFromVariables($id, $petname, $genre) 
+    public static function createPetFromVariables($id, $petName, $petAge, $petRace, $petSex) 
     {
         $newPet = new Pet();
         $newPet->setPetId($id);
@@ -93,7 +93,7 @@ Class PetRepository
                 WHERE id = {$pet->getPetId()}
                 ";
         $result = $this->dbConnection->query($sql);
-
+        var_dump($sql);
         return $result;      
     }
 

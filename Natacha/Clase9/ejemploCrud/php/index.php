@@ -6,8 +6,6 @@
     require_once('./bbdd-conn.php');
     require_once('./utils.php');
 
-
-
     // Create connection
     $conn = new mysqli($servername, $username, $password, $dbname, $serverport);
 
