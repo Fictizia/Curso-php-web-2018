@@ -2,9 +2,9 @@
     require_once('./model/User.php');    
     require_once('./repository/UserRepository.php');
 
-    $servername = "mysql_db_C9";
+    $servername = "mysql_db_C10";
     $serverport = "3306";
-    $dbname = "clase9";
+    $dbname = "clase10";
     $username = "devuser";
     $password = "devpass";
 
@@ -20,7 +20,9 @@
      
     $userName = $_POST['name'];
     $userEmail = $_POST['email'];
-    $userSex = $_POST['sex'];
+    $userTelephone = $_POST['telephone'];
+    $userMesagge = $_POST['message'];
+    $userAccepted = $_POST['accepted'];
 
     //@TODO busca la manera correcta de saber si es un get o un post
     $isAPost = false;
@@ -44,7 +46,9 @@ echo "<h1>{$user->getId()}</h1>";
                 <p>User Id: <input type="text" name="name" value="' . $user->getId() . '"/></p>
                 <p>User name: <input type="text" name="name" value="' . $user->getName() . '" /></p>
                 <p>User email: <input type="text" name="email" value="' . $user->getEmail() . '"/></p>
-                <p>User sex (F/M/N): <input type="text" name="sex" value="' . $user->getSexo() . '"/></p>
+                <p>User telephone: <input type="text" name="telephone" value="' . $user->getTelephone() . '"/></p>
+                <p>User message: <input type="text" name="message" value="' . $user->getMessage() . '"/></p>
+                <p>User message: <input type="text" name="message" value="' . $user->getAccepted() . '"/></p>
                 <p><input type="submit" /></p>
             </form>
         ';
@@ -53,7 +57,7 @@ echo "<h1>{$user->getId()}</h1>";
     }
 
     if ($user && $isAPost) {
-        $userToUpdate = $userRepository::createFromVariables($userId, $userName, $userEmail, $userSex);
+        $userToUpdate = $userRepository::createFromVariables($userId, $userName, $userEmail, $userTelephone, $userMessage, $userAccepted);
         $updated = $userRepository->update($userToUpdate);
         if ($updated) {
             $user = $userRepository->getByEmail($userEmail);
