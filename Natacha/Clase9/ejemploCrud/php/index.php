@@ -1,23 +1,25 @@
 <?php
     require_once('./model/User.php');    
     require_once('./repository/UserRepository.php');
+    require_once('./model/Pet.php');    
+    require_once('./repository/PetRepository.php');
+    require_once('./bbdd-conn.php');
+    require_once('./utils.php');
 
-    $servername = "mysql_db_C9";
-    $serverport = "3306";
-    $dbname = "clase9";
-    $username = "devuser";
-    $password = "devpass";
+
 
     // Create connection
     $conn = new mysqli($servername, $username, $password, $dbname, $serverport);
 
     $userRepository = new UserRepository($conn);
+    $petRepository = new PetRepository($conn);
 ?>
 <html>
     <head>
     </head>
     <body>
         <h1>Panel de usuarios</h1>
+        <h2>Usuarios</h2>
         <table class="table">
         <thead>
             <tr>
@@ -49,7 +51,42 @@
         </tbody>
         </table>
         <a href='create-user.php'>create user</a>
+<!-- mascotas -->
+       <h2>Usuarios</h2>
+        <table class="table">
+        <thead>
+            <tr>
+            <th>Id</th>
+            <th>Raza</th>
+            <th>Nombre</th>
+            <th>Sexo</th>
+            <th>Edad</th>
+            <th>OPS</th>
+            </tr>
+        </thead>
+        <tbody>
+          
+        <?php
+            $pets = $petRepository->getAllPets();
 
-    <h1>@TODO - añadir una lista de mascotas aqui debajo, con opciones CRUD, como usuarios</h1>
+            foreach ($pets as $pet) {
+                echo "<tr>";
+                    echo "<td>{$pet->getPetId()}</td>";
+                    echo "<td>{$pet->getPetRace()}</td>";
+                    echo "<td>{$pet->getPetName()}</td>";
+                    echo "<td>{$pet->getPetAge()}</td>";
+                    echo "<td>{$pet->getPetSex()}</td>";
+                    echo "<td>
+                        <a href='update-pet.php?pet={$pet->getPetId()}'>Update</a>
+                        <a href='delete-pet.php?pet={$pet->getPetId()}'>Delete</a>
+                    </td>";
+                echo "</tr>";
+            }
+        ?>
+        </tbody>
+        </table>
+        <a href='create-pet.php'>create pet</a>
+
+
     </body>
 </html>
