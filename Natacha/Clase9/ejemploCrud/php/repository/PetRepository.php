@@ -86,8 +86,8 @@ Class PetRepository
     {
         $sql = "UPDATE `clase9`.`pets` 
                 SET 
-                    raza = '{$pet->getPetRace()}',
                     petname = '{$pet->getPetName()}',
+                    raza = '{$pet->getPetRace()}',
                     edad = '{$pet->getPetAge()}',
                     sexo = '{$pet->getPetSex()}'   
                 WHERE id = {$pet->getPetId()}
