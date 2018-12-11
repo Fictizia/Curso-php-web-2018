@@ -38,7 +38,7 @@
     <p>User email: <input type="text" name="email" /></p>
     <p>User telephone: <input type="text" name="telephone" /></p>
     <p>User message: <input type="text" name="message" /></p>
-    <p>User accepted: <input type="text" name="accepted" /></p>
+    <p>User accepted: <input type="checkbox" name="accepted" value="1" /></p>
     <p><input type="submit" /></p>
 </form>
 
