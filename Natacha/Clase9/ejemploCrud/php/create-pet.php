@@ -40,11 +40,11 @@
             $newPet = $petRepository::createPetFromVariables(null, $petName, $petRace, $petAge, $petSex);
             $created = $petRepository->insert($newPet);
             if ($created) {
-                    $pet = $petRepository->getPetById($conn->insert_id);
-                    echo "<p>mascota creado con id {$pet->getPetId()} con nombre {$pet->getPetName()}</p>";
+                $pet = $petRepository->getPetById($conn->insert_id);
+                echo "<p>mascota creado con id {$pet->getPetId()} con nombre {$pet->getPetName()}</p>";
             } else {
-                    echo "<p>mascota no pudo ser creado</p>";
-                    echo "<p>{$conn->error}</p>";
+                echo "<p>mascota no pudo ser creado</p>";
+                echo "<p>{$conn->error}</p>";
             }
 
     }
