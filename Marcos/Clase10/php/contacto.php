@@ -31,7 +31,7 @@
     }
     ?>
 
-<h1>Create User</h1>
+<h1>Creategit User</h1>
 
 <form action="contacto.php" method="post">
     <p>User name: <input type="text" name="name" /></p>
