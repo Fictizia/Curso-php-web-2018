@@ -33,7 +33,6 @@ docker exec -it php_web_C12 php bin/composer update
 ```
 para actualizar el composer.lock a las ultimas versiones (y luego actualiza nuestras librerias)
 
-
-AGILE-BOARD
-===
-!img(agile_board.png)
+ 
+ crear un fichero composer.json en el mismo directorio donde está docker-compose.yml
+ 
