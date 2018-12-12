@@ -31,8 +31,8 @@
                 <p>pet Id: <input type="text" name="id" value="' . $pet->getPetId() . '"/></p>
                 <p>pet name: <input type="text" name="petname" value="' . $pet->getPetName() . '" /></p>
                 <p>pet raza: <input type="text" name="raza" value="' . $pet->getPetRace() . '"/></p>
-                <p>pet sex (F/M): <input type="text" name="sexo" value="' . $pet->getPetSex() . '"/></p>
                 <p>pet age: <input type="text" name="edad" value="' . $pet->getPetAge() . '"/></p>
+                <p>pet sex (F/M): <input type="text" name="sexo" value="' . $pet->getPetSex() . '"/></p>
                 <p><input type="submit" /></p>
             </form>
         ';
@@ -49,8 +49,9 @@
             echo "<li>ID: {$pet->getPetId()}</li>";
             echo "<li>Nombre: {$pet->getPetName()}</li>";
             echo "<li>Raza: {$pet->getPetRace()}</li>";
+            echo "<li>Edad: {$pet->getPetAge()}</li>";
             echo "<li>Sexo: {$pet->getPetSex()}</li></ul>";
-            echo "<li>Edad: {$pet->getPetAge()}</li></ul>";
+            
         } else {
             echo "<p>usuario no pudo ser modificado</p>";
             echo "<p>{$conn->error}</p>";

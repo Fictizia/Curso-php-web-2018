@@ -28,7 +28,7 @@
 <form action="create-pet.php" method="post">
     <p>Pet name: <input type="text" name="petname" /></p>
     <p>Pet Race: <input type="text" name="raza" /></p>
-    <p>Pet sex (M/F): <input type="text" name="sexo" /></p>
+    <p>Pet sex (M/H): <input type="text" name="sexo" /></p>
     <p>Pet Age: <input type="text" name="edad" /></p>
     <p><input type="submit" /></p>
 </form>
@@ -36,15 +36,17 @@
 <?php
 
     if (isAPost()) {
-        $newPet = $petRepository::createPetFromVariables(null, $petName, $petRace, $petAge, $petSex);
-        $created = $petRepository->insert($newPet);
-        if ($created) {
-                $pet = $petRepository->getPetById($petId);
-                echo "<p>mascota creado con id {$pet->getPetId()}</p>";
-        } else {
-                echo "<p>mascota no pudo ser creado</p>";
-                echo "<p>{$conn->error}</p>";
-        }
+
+            $newPet = $petRepository::createPetFromVariables(null, $petName, $petRace, $petAge, $petSex);
+            $created = $petRepository->insert($newPet);
+            if ($created) {
+                    $pet = $petRepository->getPetById($conn->insert_id);
+                    echo "<p>mascota creado con id {$pet->getPetId()} con nombre {$pet->getPetName()}</p>";
+            } else {
+                    echo "<p>mascota no pudo ser creado</p>";
+                    echo "<p>{$conn->error}</p>";
+            }
+
     }
 ?>
 <a href='./index.php'>back to main </a>

@@ -14,19 +14,19 @@ Class PetRepository
     {
         $newPet = new Pet();
         $newPet->setPetId($row['id']);
-        $newPet->setPetRace($row['raza']);
         $newPet->setPetName($row['petname']);
+        $newPet->setPetRace($row['raza']);
         $newPet->setPetAge($row['edad']);
         $newPet->setPetSex($row['sexo']);
         return $newPet;
     }
     
-    public static function createPetFromVariables($id, $petName, $petAge, $petRace, $petSex) 
+    public static function createPetFromVariables($id, $petName, $petRace,  $petAge, $petSex) 
     {
         $newPet = new Pet();
         $newPet->setPetId($id);
-        $newPet->setPetRace($petRace);
         $newPet->setPetName($petName);
+        $newPet->setPetRace($petRace);
         $newPet->setPetAge($petAge);
         $newPet->setPetSex($petSex);
         return $newPet;
@@ -51,7 +51,6 @@ Class PetRepository
         $pet = NULL;
         $sql = "SELECT * FROM pets WHERE id = {$id}";
         $result = $this->dbConnection->query($sql);
-
         $row = $result->fetch_array();
         if ($row) {
             $pet = self::createPetFromRow($row);
@@ -59,6 +58,29 @@ Class PetRepository
 
         return $pet;      
     }
+
+    public function getPetByName($petName)
+    {
+        //@DONE - crea este codigo
+        $user = NULL;
+        $sql = "SELECT * FROM pets WHERE name = '{$petName}'";
+        var_dump($sql);
+        $result = $this->dbConnection->query($sql);
+        
+        $row = $result->fetch_array();
+        
+        if ($row) {
+            $pet = self::createPetFromRow($row);
+        }
+
+        return $pet; // devolvemos un usuario (no el email)
+        // fin añadido
+        // return null;      
+    }
+
+
+
+
 
     public function delete($pet)
     {
@@ -70,10 +92,10 @@ Class PetRepository
     public function insert($pet)
     {
         $sql = "INSERT INTO `clase9`.`pets` 
-                    (`raza`, `petname`, `edad`,`sexo` )
+                    (`petname`, `raza`,`edad`,`sexo` )
                 VALUES (
-                     '{$pet->getPetRace()}',
                      '{$pet->getPetName()}',
+                     '{$pet->getPetRace()}',
                      '{$pet->getPetAge()}',
                      '{$pet->getPetSex()}'   
                 )";
@@ -89,7 +111,7 @@ Class PetRepository
                     petname = '{$pet->getPetName()}',
                     raza = '{$pet->getPetRace()}',
                     edad = '{$pet->getPetAge()}',
-                    sexo = '{$pet->getPetSex()}'   
+                    sexo = '{$pet->getPetSex()}'  
                 WHERE id = {$pet->getPetId()}
                 ";
         $result = $this->dbConnection->query($sql);
