@@ -21,7 +21,4 @@ Trabajo con cadenas
     http://php.net/manual/es/function.strpos.php
 
 
-Inclusion de ficheros
-===
 
-# 
