@@ -6,3 +6,16 @@ INSERT INTO `clase10`.`users` (`name`, `email`, `telephone`, `message`,`accepted
 INSERT INTO `clase10`.`users` (`name`, `email`, `telephone`, `message`,`accepted`) VALUES ('mario', 'mario@fakemail.com', '000000000', '', 1);
 INSERT INTO `clase10`.`users` (`name`, `email`, `telephone`, `message`,`accepted`) VALUES ('paqui', 'paqui@fakemail.com', '000000000', '', 1);
 INSERT INTO `clase10`.`users` (`name`, `email`, `telephone`, `message`,`accepted`) VALUES ('antonio', 'antonio@fakemail.com', '000000000', '', 1);
+
+
+
+
+
+
+INSERT INTO `clase10`.`budget` (`servicio`, `observaciones`, `plazo`, `presupuesto`) VALUES ('', '', '', '');
+INSERT INTO `clase10`.`budget` (`servicio`, `observaciones`, `plazo`, `presupuesto`) VALUES ('', '', '', '');
+INSERT INTO `clase10`.`budget` (`servicio`, `observaciones`, `plazo`, `presupuesto`) VALUES ('', '', '', '');
+INSERT INTO `clase10`.`budget` (`servicio`, `observaciones`, `plazo`, `presupuesto`) VALUES ('', '', '', '');
+INSERT INTO `clase10`.`budget` (`servicio`, `observaciones`, `plazo`, `presupuesto`) VALUES ('', '', '', '');
+INSERT INTO `clase10`.`budget` (`servicio`, `observaciones`, `plazo`, `presupuesto`) VALUES ('', '', '', '');
+INSERT INTO `clase10`.`budget` (`servicio`, `observaciones`, `plazo`, `presupuesto`) VALUES ('', '', '', '');

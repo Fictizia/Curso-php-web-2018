@@ -41,6 +41,7 @@ echo "<h1>{$user->getId()}</h1>";
 
     //@TODO: aqui los datos no se refrescan bien cuando se cambian... puedes arreglarlo?
     if ($user) {
+        var_dump ($user->getAccepted() );
         echo '
             <form action="update-user.php?user=' . $user->getId() .'" method="post">
                 <p>User Id: <input type="text" name="name" value="' . $user->getId() . '"/></p>
@@ -48,7 +49,8 @@ echo "<h1>{$user->getId()}</h1>";
                 <p>User email: <input type="text" name="email" value="' . $user->getEmail() . '"/></p>
                 <p>User telephone: <input type="text" name="telephone" value="' . $user->getTelephone() . '"/></p>
                 <p>User message: <input type="text" name="message" value="' . $user->getMessage() . '"/></p>
-                <p>User message: <input type="text" name="message" value="' . $user->getAccepted() . '"/></p>
+                <p>User accepted: <input type="checkbox" name="message" value=' . $user->getAccepted() . '/></p>
+                
                 <p><input type="submit" /></p>
             </form>
         ';
@@ -64,7 +66,7 @@ echo "<h1>{$user->getId()}</h1>";
             echo "<p>usuario modicado: {$user->getName()} esto es el email {$user->getEmail()} </p>";
         } else {
             echo "<p>usuario no pudo ser modificado</p>";
-            echo "<p>{$conn->err}</p>";
+            echo "<p>{$conn->error}</p>";
         }
     }
 
