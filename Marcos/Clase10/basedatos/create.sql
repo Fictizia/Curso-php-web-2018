@@ -14,3 +14,7 @@ CREATE TABLE `clase10`.`budget` (
   `plazo` VARCHAR(300) NOT NULL,
   `presupuesto` VARCHAR(300) NOT NULL,
    PRIMARY KEY (`id`));
+
+   ALTER TABLE `clase10` . `budget` ADD COLUMN `user_id` int not null after `id`;
+   ALTER TABLE `clase10`. `budget` ADD FOREIGN KEY(`user_id`)
+   REFERENCES `users`(`id`);
