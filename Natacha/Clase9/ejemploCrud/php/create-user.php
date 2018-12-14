@@ -1,16 +1,15 @@
 <?php
+    require_once('./bbdd-conn.php');
     require_once('./model/User.php');    
     require_once('./repository/UserRepository.php');
+    require_once('./utils.php');
 
-    //@TODO este codigo que se repite, se puede poner en un fichero aparte
+
+    //@DONE este codigo que se repite, se puede poner en un fichero aparte
     //@TODO MEDIUM con estos datos, se puede crear una clase de base de datos
     //@TODO MEGATODO: Busca una base de datos Singleton y trata de que funcione en 
     //este codigo
-    $servername = "mysql_db_C9";
-    $serverport = "3306";
-    $dbname = "clase9";
-    $username = "devuser";
-    $password = "devpass";
+
 
     // Create connection
     $conn = new mysqli($servername, $username, $password, $dbname, $serverport);
@@ -22,11 +21,6 @@
     $userName = $_POST['name'];
     $userEmail = $_POST['email'];
     $userSex = $_POST['sex'];
-
-    $isAPost = false;
-    if ($userName && $userEmail && $userSex) {
-        $isAPost = true;
-    }
     ?>
 
 <h1>Create User</h1>
@@ -40,17 +34,17 @@
 
 <?php
 
-    if ($isAPost) {
+    if (isAPost()) {
         $user = $userRepository->getByEmail($userEmail);
         if (!$user) {
             $newUser = $userRepository::createFromVariables(null, $userName, $userEmail, $userSex);
             $created = $userRepository->insert($newUser);
             if ($created) {
                 $user = $userRepository->getByEmail($userEmail);
-                echo "<p>usuario creado con id @TODO PON AQUI EL ID DEL USUARIO </p>";
+                echo "<p>usuario creado con id {$user->getId()}</p>";
             } else {
                 echo "<p>usuario no pudo ser creado</p>";
-                echo "<p>{$conn->err}</p>";
+                echo "<p>{$conn->error}</p>";
             }
         } else {
             echo "<p>user with email: {$userEmail} already exists</p>";
