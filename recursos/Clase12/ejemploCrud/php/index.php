@@ -1,11 +1,10 @@
 <?php
-    require_once('./model/User.php');    
-    require_once('./repository/UserRepository.php');
-    require_once('./config/dbConnection.php');
+    require_once('autoload.php');
     
     global $conn;
     
-    $userRepository = new UserRepository($conn);
+    $userRepository = new UserRepository($conn);    
+    $petRepository  = new PetRepository($conn);
 ?>
 <html>
     <head>
@@ -44,6 +43,40 @@
         </table>
         <a href='create-user.php'>create user</a>
 
-    <h1>@TODO - añadir una lista de mascotas aqui debajo, con opciones CRUD, como usuarios</h1>
+
+        <h1>Panel de usuarios</h1>
+        <table class="table">
+        <thead>
+            <tr>
+            <th>Id</th>
+            <th>Race</th>
+            <th>Name</th>
+            <th>Sex</th>
+            <th>OPS</th>
+            </tr>
+        </thead>
+        <tbody>
+          
+        <?php
+            $pets = $petRepository->getAll();
+
+            foreach ($pets as $pet) {
+                echo "<tr>";
+                    echo "<td>{$pet->getId()}</td>";
+                    echo "<td>{$pet->getRace()}</td>";
+                    echo "<td>{$pet->getName()}</td>";
+                    echo "<td>{$pet->getSexo()}</td>";
+                    echo "<td>
+                        <a href='update-pet.php?pet={$pet->getId()}'>Update</a>
+                        <a href='delete-pet.php?pet={$pet->getId()}'>Delete</a>
+                    </td>";
+                echo "</tr>";
+            }
+        ?>
+        </tbody>
+        </table>
+        <a href='create-pet.php'>create pet</a>
+
+
     </body>
 </html>

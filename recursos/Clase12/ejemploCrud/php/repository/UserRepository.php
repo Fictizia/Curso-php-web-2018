@@ -1,4 +1,5 @@
 <?php
+require_once ('autoload.php');
 
 Class UserRepository
 {
@@ -9,28 +10,6 @@ Class UserRepository
         $this->dbConnection = $dbConnection;
     }
 
-    //@TODO MEDIUM Crear una clase para crear Usuarios desde variables o arrays
-    public static function createFromRow($row) 
-    {
-        $newUser = new User();
-        $newUser->setId($row['id']);
-        $newUser->setName($row['name']);
-        $newUser->setEmail($row['email']);
-        $newUser->setSexo($row['sexo']);
-        return $newUser;
-    }
-    
-    public static function createFromVariables($id, $name, $email, $sexo) 
-    {
-        $newUser = new User();
-        $newUser->setId($id);
-        $newUser->setName($name);
-        $newUser->setEmail($email);
-        $newUser->setSexo($sexo);
-        return $newUser;
-    }
-    //estos dos metodos de arriba pueden ir en una clase que pase de arrays o 
-    //variables a objetos usuario 
 
     public function getAll()
     {
@@ -38,7 +17,7 @@ Class UserRepository
         $result = $this->dbConnection->query($sql);
         $userArray = [];
         foreach ($result as $row) {
-            $userArray[] = self::createFromRow($row);
+            $userArray[] = UserNormalizer::createFromRow($row);
         }
 
         return $userArray;      
@@ -52,16 +31,24 @@ Class UserRepository
 
         $row = $result->fetch_array();
         if ($row) {
-            $user = self::createFromRow($row);
+            $user = UserNormalizer::createFromRow($row);
         }
 
         return $user;      
     }
 
-    public function getByEmail($id)
+    public function getByEmail($email)
     {
-        //@TODO - crea este codigo
-        return null;      
+        $user = NULL;
+        $sql = "SELECT * FROM users WHERE email = '{$email}'";
+        $result = $this->dbConnection->query($sql);
+
+        $row = $result->fetch_array();
+        if ($row) {
+            $user = UserNormalizer::createFromRow($row);
+        }
+
+        return $user;      
     }
 
     public function delete($user)
@@ -78,7 +65,7 @@ Class UserRepository
                 VALUES (
                      '{$user->getName()}',
                      '{$user->getEmail()}',
-                     '{$user->getSexo()}'   
+                     '{$user->getSexo()}'
                 )";
         $result = $this->dbConnection->query($sql);
 

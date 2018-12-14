@@ -1,6 +1,6 @@
 <?php
-    require_once ('./vendor/autoload.php');
-    require_once ('./mode/User.php')
+require_once ('autoload.php');
+require_once ('./vendor/autoload.php');
 
 use PHPUnit\Framework\TestCase;
 

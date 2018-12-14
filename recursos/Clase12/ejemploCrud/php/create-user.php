@@ -1,11 +1,10 @@
 <?php
-    require_once('./model/User.php');    
-    require_once('./repository/UserRepository.php');
-    require_once('./config/dbConnection.php');
-    
+    require_once('autoload.php');
+
     global $conn;
     
     $userRepository = new UserRepository($conn);
+    $petRepository = new PetRepository($conn);
 
     //de aqui para abajo, estamos recogiendo los datos que necesitamos para 
     //empezar a trabajar
@@ -33,14 +32,14 @@
     if ($isAPost) {
         $user = $userRepository->getByEmail($userEmail);
         if (!$user) {
-            $newUser = $userRepository::createFromVariables(null, $userName, $userEmail, $userSex);
+            $newUser = UserNormalizer::createFromVariables(null, $userName, $userEmail, $userSex);
             $created = $userRepository->insert($newUser);
             if ($created) {
                 $user = $userRepository->getByEmail($userEmail);
-                echo "<p>usuario creado con id @TODO PON AQUI EL ID DEL USUARIO </p>";
+                echo "<p>usuario creado con id {$user->getId()}</p>";
             } else {
                 echo "<p>usuario no pudo ser creado</p>";
-                echo "<p>{$conn->err}</p>";
+                echo "<p>{$conn->error}</p>";
             }
         } else {
             echo "<p>user with email: {$userEmail} already exists</p>";

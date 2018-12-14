@@ -1,7 +1,5 @@
 <?php
-    require_once('./model/User.php');    
-    require_once('./repository/UserRepository.php');
-    require_once('./config/dbConnection.php');
+    require_once('autoload.php');
     
     global $conn;
     
@@ -18,7 +16,7 @@
 
     //@TODO busca la manera correcta de saber si es un get o un post
     $isAPost = false;
-    if ($userName && $userEmail && $userSex) {
+    if ($SERVER['REQUEST_METHOD']=='POST') {
         $isAPost = true;
     }
 ?>
@@ -42,7 +40,7 @@
     }
 
     if ($user && $isAPost) {
-        $userToUpdate = $userRepository::createFromVariables($userId, $userName, $userEmail, $userSex);
+        $userToUpdate = UserNormalizer::createFromVariables($userId, $userName, $userEmail, $userSex);
         $updated = $userRepository->update($userToUpdate);
         if ($updated) {
             $user = $userRepository->getByEmail($userEmail);
