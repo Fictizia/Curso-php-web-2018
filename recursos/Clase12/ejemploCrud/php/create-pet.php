@@ -11,6 +11,7 @@
     $petName = $_POST['name'];
     $petRace = $_POST['race'];
     $petSex = $_POST['sex'];
+    $petUserId = $_POST['user_id'];
 
     $isAPost = false;
     if ($petName && $petRace && $petSex) {
@@ -45,7 +46,7 @@
 
     if ($isAPost) {
         if (!$pet) {
-            $newPet = PetNormalizer::createFromVariables(null, $petName, $petRace, $petSex);
+            $newPet = PetNormalizer::createFromVariables(null, $petName, $petRace, $petSex, $petUserId);
             $created = $petRepository->insert($newPet);
             if ($created) {
                 $pet = $petRepository->getById($conn->insert_id);

@@ -48,14 +48,15 @@ Class PetRepository
     public function insert($pet)
     {
         $sql = "INSERT INTO  `pets` 
-                    (`name`, `race`, `sexo`) 
+                    (`name`, `race`, `sexo`, `user_id`) 
                 VALUES (
                      '{$pet->getName()}',
                      '{$pet->getRace()}',
-                     '{$pet->getSexo()}'   
+                     '{$pet->getSexo()}',   
+                     '{$pet->getUserId()}',   
                 )";
         $result = $this->dbConnection->query($sql);
-
+var_dump($sql);
         return $result;      
     }
 
@@ -65,7 +66,8 @@ Class PetRepository
                 SET 
                     name = '{$pet->getName()}',
                     race = '{$pet->getRace()}',
-                    sexo = '{$pet->getSexo()}'   
+                    sexo = '{$pet->getSexo()}',
+                    user_id = '{$pet->getUserId()}'   
                 WHERE id = {$pet->getId()}
                 ";
         $result = $this->dbConnection->query($sql);
