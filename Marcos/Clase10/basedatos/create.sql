@@ -7,3 +7,10 @@ CREATE TABLE `clase10`.`users` (
   `accepted` TINYINT(1) NOT NULL,
   PRIMARY KEY (`id`));
 
+CREATE TABLE `clase10`.`budget` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `servicio` VARCHAR(300) NOT NULL,
+  `observaciones` VARCHAR(300) NOT NULL,
+  `plazo` VARCHAR(300) NOT NULL,
+  `presupuesto` VARCHAR(300) NOT NULL,
+   PRIMARY KEY (`id`));

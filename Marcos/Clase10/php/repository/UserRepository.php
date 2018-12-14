@@ -62,10 +62,18 @@ Class UserRepository
         return $user;      
     }
 
-    public function getByEmail($id)
+    public function getByEmail($email)
     {
-        //@TODO - crea este codigo
-        return null;      
+      
+        $user = NULL;
+        $sql = "SELECT * FROM users WHERE email = '{$email}'";
+        $result = $this->dbConnection->query($sql);
+
+        $row = $result->fetch_array();
+        if ($row) {
+            $user = self::createFromRow($row);
+        }
+        return $user;      
     }
 
     public function delete($user)
@@ -96,12 +104,13 @@ Class UserRepository
     public function update($user)
     {
         $sql = "UPDATE `clase10`.`users` 
+
                 SET 
                     name = '{$user->getName()}',
                     email = '{$user->getEmail()}',
                     telephone = '{$user->getTelephone()}',
                     message = '{$user->getMessage()}',
-                    accepted = '{$user->getAccepted()}'     
+                    accepted = " . (int)$user->getAccepted() ."     
                 WHERE id = {$user->getId()}
                 ";
         $result = $this->dbConnection->query($sql);

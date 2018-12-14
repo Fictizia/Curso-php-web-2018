@@ -54,6 +54,39 @@
         </table>
         <a href='contacto.php'>Contacto</a>
 
-    
+   <h1>Panel de budget</h1>
+        <table class="table">
+        <thead>
+            <tr>
+            <th>Id</th>
+            <th>Servicio</th>
+            <th>Observaciones</th>
+            <th>Plazo</th>
+            <th>Presupuesto</th>
+            </tr>
+        </thead>
+        <tbody>
+          
+        <?php
+            $budget = $budgetRepository->getAll();
+
+            foreach ($users as $budget) {
+                echo "<tr>";
+                    echo "<td>{$budget->getId()}</td>";
+                    echo "<td>{$budget->getServicio()}</td>";
+                    echo "<td>{$budget->getObservaciones()}</td>";
+                    echo "<td>{$budget->getPlazo()}</td>";
+                    echo "<td>{$budget->getPresupuesto()}</td>";
+                    echo "<td>
+                        <a href='update-budget.php?budget={$budget->getId()}'>Update</a>
+                        <a href='delete-budget.php?budget={$budget->getId()}'>Delete</a>
+                    </td>";
+                echo "</tr>";
+            }
+        ?>
+        </tbody>
+        </table>
+        <a href='Budget.php'>budget</a>
+ 
     </body>
 </html>
