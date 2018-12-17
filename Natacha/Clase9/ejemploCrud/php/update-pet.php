@@ -1,12 +1,7 @@
 <?php
 
-    require_once('./model/Pet.php');    
-    require_once('./repository/PetRepository.php');
-    require_once('./bbdd-conn.php');
-    require_once('./utils.php');
+require_once('./autoload.php');
 
-    // Create connection
-    $conn = new mysqli($servername, $username, $password, $dbname, $serverport);
 
     $petRepository = new PetRepository($conn);
 

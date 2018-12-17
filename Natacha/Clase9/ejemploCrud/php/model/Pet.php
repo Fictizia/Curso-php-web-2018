@@ -7,6 +7,8 @@ Class Pet
     protected $petName;
     protected $petSex;
     protected $petAge;
+    protected $user;
+    protected $user_id;
 
 
     public function getPetId()
@@ -59,4 +61,25 @@ Class Pet
     {
         $this->petAge = $petAge;
     }
+
+    public function getUserId()
+    {
+        return $this->user_id;
+    }
+    public function setUserId($user_id)
+    {
+        $this->user_id = $user_id;
+    }
+    public function getUser()
+    {
+        if (is_null($this->user)) {
+            global $conn;
+            if ($this->user_id) {
+                $userRepository = new UserRepository($conn);
+                $this->user = $userRepository->getById($this->user_id);
+            }
+        }
+        return $this->user;
+    }
+
 }

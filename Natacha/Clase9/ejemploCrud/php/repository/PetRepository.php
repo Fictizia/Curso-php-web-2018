@@ -18,6 +18,7 @@ Class PetRepository
         $newPet->setPetRace($row['raza']);
         $newPet->setPetAge($row['edad']);
         $newPet->setPetSex($row['sexo']);
+        $newPet->setPetSex($row['user_id']??null); // meter valor por defecto (coalescing). Ver operadores ternarios
         return $newPet;
     }
     
@@ -29,6 +30,7 @@ Class PetRepository
         $newPet->setPetRace($petRace);
         $newPet->setPetAge($petAge);
         $newPet->setPetSex($petSex);
+        $newPet->setPetSex($user_id);
         return $newPet;
     }
     //estos dos metodos de arriba pueden ir en una clase que pase de arrays o 
