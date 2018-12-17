@@ -11,10 +11,10 @@
     $petName = $_POST['name'];
     $petRace = $_POST['race'];
     $petSex = $_POST['sex'];
-    $petUserId = $_POST['user_id'];
+    $petUserId = $_POST['pet_user'];
 
     $isAPost = false;
-    if ($petName && $petRace && $petSex) {
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $isAPost = true;
     }
     ?>
@@ -26,7 +26,7 @@
     <p>Pet race: <input type="text" name="race" /></p>
     <p>Pet sex (F/M/N): <input type="text" name="sex" /></p>
     <p>User's pet:
-        <select name="pets">
+        <select name="pet_user">
             <option value="">'no user'</option>
             <?php
                 $users = $userRepository->getAll(); 

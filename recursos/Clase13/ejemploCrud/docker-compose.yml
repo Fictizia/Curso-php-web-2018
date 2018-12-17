@@ -5,10 +5,10 @@ version: '3'
 services:
   db:
     image: mysql:5.7
-    container_name: mysql_db_C12
+    container_name: mysql_db_C13
     environment:
       MYSQL_ROOT_PASSWORD: rootsecretpass
-      MYSQL_DATABASE: clase12
+      MYSQL_DATABASE: clase13
       MYSQL_USER: devuser
       MYSQL_PASSWORD: devpass
     ports:
@@ -16,7 +16,7 @@ services:
   web:
     build:
       context: ./docker/php
-    container_name: php_web_C12
+    container_name: php_web_C13
     depends_on:
       - db
     volumes:

@@ -1,7 +1,7 @@
 <?php
-    $servername = "mysql_db_C12";
+    $servername = "mysql_db_C13";
     $serverport = "3306";
-    $dbname = "clase12";
+    $dbname = "clase13";
     $username = "devuser";
     $password = "devpass";
 

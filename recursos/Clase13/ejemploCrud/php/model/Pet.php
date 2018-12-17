@@ -1,5 +1,7 @@
 <?php
 
+require_once ('autoload.php');
+
 Class Pet
 {
     protected $id;
@@ -32,12 +34,15 @@ Class Pet
 
     public function getUser()
     {
-        return $this->user;
-    }
+        if (is_null($this->user)) {
+            global $conn;
+            if ($this->user_id) {
+                $userRepository = new UserRepository($conn);
+                $this->user = $userRepository->getById($this->user_id);
+            }
+        }
 
-    public function setUser($user)
-    {
-        $this->user = $user;
+        return $this->user;
     }
 
     public function getName()

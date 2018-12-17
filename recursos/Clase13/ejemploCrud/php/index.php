@@ -52,6 +52,8 @@
             <th>Race</th>
             <th>Name</th>
             <th>Sex</th>
+            <th>Owner</th>
+
             <th>OPS</th>
             </tr>
         </thead>
@@ -61,11 +63,17 @@
             $pets = $petRepository->getAll();
 
             foreach ($pets as $pet) {
+                $userName = '';
+                if ($pet->getUser()) {
+                    $userName = $pet->getUser()->getName();
+                }
                 echo "<tr>";
                     echo "<td>{$pet->getId()}</td>";
                     echo "<td>{$pet->getRace()}</td>";
                     echo "<td>{$pet->getName()}</td>";
                     echo "<td>{$pet->getSexo()}</td>";
+                    echo "<td>{$userName}</td>";
+
                     echo "<td>
                         <a href='update-pet.php?pet={$pet->getId()}'>Update</a>
                         <a href='delete-pet.php?pet={$pet->getId()}'>Delete</a>

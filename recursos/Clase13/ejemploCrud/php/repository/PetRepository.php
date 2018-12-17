@@ -53,10 +53,10 @@ Class PetRepository
                      '{$pet->getName()}',
                      '{$pet->getRace()}',
                      '{$pet->getSexo()}',   
-                     '{$pet->getUserId()}',   
+                     '{$pet->getUserId()}'   
                 )";
         $result = $this->dbConnection->query($sql);
-var_dump($sql);
+
         return $result;      
     }
 
@@ -74,5 +74,4 @@ var_dump($sql);
 
         return $result;      
     }
-
 }

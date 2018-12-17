@@ -5,7 +5,7 @@ Class UserRepository
 {
     protected $dbConnection;
 
-    public function __construct( $dbConnection)
+    public function __construct($dbConnection)
     {
         $this->dbConnection = $dbConnection;
     }

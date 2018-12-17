@@ -1,5 +1,7 @@
 <?php
 
+require_once ('autoload.php');
+
 Class User
 {
     protected $id;
