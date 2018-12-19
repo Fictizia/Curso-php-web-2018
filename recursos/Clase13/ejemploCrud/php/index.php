@@ -44,7 +44,7 @@
         <a href='create-user.php'>create user</a>
 
 
-        <h1>Panel de usuarios</h1>
+        <h1>Panel de mascotas</h1>
         <table class="table">
         <thead>
             <tr>

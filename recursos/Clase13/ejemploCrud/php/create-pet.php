@@ -21,6 +21,21 @@
 
 <h1>Create Pet</h1>
 
+<?php
+    if ($isAPost) {
+        try 
+        {
+            $petToCreate = PetNormalizer::createFromVariables(null, $petName, $petRace, $petSex, $petUserId);
+            $createdPet = $petRepository->insert($petToCreate);
+            $petRepository->getById($createdPet->getId());
+            echo "<p>mascota creada con id {$pet->getId()} </p>";
+
+        } catch (\Exception $e) {
+            echo "<p>{$e->getMessage()}</p>";
+        }
+    }
+?>
+
 <form action="create-pet.php" method="post">
     <p>Pet name: <input type="text" name="name" /></p>
     <p>Pet race: <input type="text" name="race" /></p>
@@ -37,28 +52,8 @@
             ?>
         </select>
     </p>
-
-
     <p><input type="submit" /></p>
 </form>
 
-<?php
-
-    if ($isAPost) {
-        if (!$pet) {
-            $newPet = PetNormalizer::createFromVariables(null, $petName, $petRace, $petSex, $petUserId);
-            $created = $petRepository->insert($newPet);
-            if ($created) {
-                $pet = $petRepository->getById($conn->insert_id);
-                echo "<p>mascota creada con id @TODO PON AQUI EL ID DEL USUARIO </p>";
-            } else {
-                echo "<p>mascota no pudo ser creada</p>";
-                echo "<p>{$conn->err}</p>";
-            }
-        } else {
-            echo "<p>pet with racee: {$petRace} already exists</p>";
-        }
-    }
-?>
 <a href='./index.php'>back to main </a>
 

@@ -13,13 +13,12 @@
 <h1>pet To delete <?php echo $petId; ?></h1>
 <?php
 
-    $pet = $petRepository->getById($petId);
-    $deleted = $petRepository->delete($pet);
-    if ($deleted) {
+    try {
+        $pet = $petRepository->getById($petId);
+        $deleted = $petRepository->delete($pet);
         echo "<p> pet properly deleted </p>";
-    } else {
-        echo "<p> error: not deleted </p>";
-        echo "<p> $conn->error</p>";
+    } catch (\Exception $e) {
+        echo "<p>{$e->getMessage()}</p>";
     }
 ?>
 <a href='./index.php'>back to main </a>
