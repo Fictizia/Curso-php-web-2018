@@ -69,7 +69,7 @@ Class PetRepository
                     (`name`, `race`, `sexo`) 
                 VALUES (?, ?, ?)";
         $sqlStatement = $this->dbConnection->prepare($sql);
-        $sqlStatement->bind_param("sssi",
+        $sqlStatement->bind_param("sss",
             $pet->getName(),
             $pet->getRace(),
             $pet->getSexo()
