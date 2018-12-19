@@ -27,9 +27,12 @@ Class PetRepository
     public function getById($id)
     {
         $pet = NULL;
+
         $sql = "SELECT * FROM pets WHERE id = {$id}";
         $result = $this->dbConnection->query($sql);
-
+        if (!$result) {
+            throw new  DatabaseError($this->dbConnection->error);
+        }
         $row = $result->fetch_array();
         if ($row) {
             $pet = PetNormalizer::createFromRow($row);
@@ -40,38 +43,67 @@ Class PetRepository
  
     public function delete($pet)
     {
-        $sql = "DELETE FROM pets WHERE id = {$pet->getId()}";
-        $result = $this->dbConnection->query($sql);
-        return $result;      
+        $petNotFound = ( 
+            $pet === null || 
+            $this->getById($pet->getId()) === null 
+        );
+        if ($petNotFound) {
+            throw new  PetNotFoundException('pet no encontrado');
+        }
+
+        $sql = "DELETE FROM pets WHERE id = ? ";
+        $sqlStatement = $this->dbConnection->prepare($sql);
+        $sqlStatement->bind_param("i", $pet->getId());
+        $result = $sqlStatement->execute();
+        if (!$result) {
+            throw new  DatabaseError($this->dbConnection->error);
+        }
+
+        return $pet;      
     }
 
     public function insert($pet)
     {
+        $userId =$pet->getUserId()??null;
         $sql = "INSERT INTO  `pets` 
-                    (`name`, `race`, `sexo`, `user_id`) 
-                VALUES (
-                     '{$pet->getName()}',
-                     '{$pet->getRace()}',
-                     '{$pet->getSexo()}',   
-                     '{$pet->getUserId()}'   
-                )";
-        $result = $this->dbConnection->query($sql);
-
-        return $result;      
+                    (`name`, `race`, `sexo`) 
+                VALUES (?, ?, ?)";
+        $sqlStatement = $this->dbConnection->prepare($sql);
+        $sqlStatement->bind_param("sss",
+            $pet->getName(),
+            $pet->getRace(),
+            $pet->getSexo()
+        );
+        $ok = $sqlStatement->execute();
+        if (!$ok) {
+            throw new DatabaseError($this->dbConnection->error); 
+        }
+        return $pet;      
     }
 
     public function update($pet)
     {
         $sql = "UPDATE `pets` 
                 SET 
-                    name = '{$pet->getName()}',
-                    race = '{$pet->getRace()}',
-                    sexo = '{$pet->getSexo()}',
-                    user_id = '{$pet->getUserId()}'   
-                WHERE id = {$pet->getId()}
+                    name = ?,
+                    race = ?,
+                    sexo = ?,
+                    user_id = ?    
+                WHERE id = ?
                 ";
-        $result = $this->dbConnection->query($sql);
-
-        return $result;      
+        $sqlStatement = $this->dbConneection->prepare($sql);
+        $sqlStatement->bind_param("sssii",
+            $pet->getName(),
+            $pet->getRace(),
+            $pet->getSexo(),
+            $pet->getUserId(),
+            $pet->getId()
+        );
+        $ok = $sqlStatement->execute();
+        if (!$ok) {
+            throw new DatabaseError($this->dbConnection->error); 
+        }
+        $pet->setId($sqlStatement->affected_rows);
+        return $pet;      
     }
 }

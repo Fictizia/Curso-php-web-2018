@@ -9,3 +9,6 @@
     require_once('./normalizer/PetNormalizer.php');
     require_once('./normalizer/NormalizerInterface.php');
 
+    require_once('./exceptions/PetNotFoundException.php');
+    require_once('./exceptions/UserNotFoundException.php');
+    require_once('./exceptions/DatabaseError.php');

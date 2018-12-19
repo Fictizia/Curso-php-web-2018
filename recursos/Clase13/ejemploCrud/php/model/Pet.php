@@ -74,4 +74,18 @@ Class Pet
     {
         $this->sexo = $sexo;
     }
+    
+    public function validate() 
+    {
+        if ($this->sexo !== 'F' && $this->sexo !== 'M' && $this->sexo !== 'N') {
+            throw new \Exception ('Sexo tiene que valer F M o N');
+        }   
+        if ($this->name === '') {
+            throw new \Exception ('Nombre vacio');
+        }
+        if ($this->name === '1') {
+            throw new \Exception ('1 NO PUEDE TENER MASCOTA');
+        }
+        return true;
+    }
 }
