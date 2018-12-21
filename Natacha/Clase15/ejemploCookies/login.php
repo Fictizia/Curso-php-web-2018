@@ -1,6 +1,9 @@
-
 <?php
 session_start();
+$referer = ($_SERVER['HTTP_REFERER'])??'SIN REFERER';
+$_SESSION['referer_list'][] = $referer;
+print_r( $_SESSION['referer_list']);
+// inicia sesion
 ?>
 <html>
     <head>
