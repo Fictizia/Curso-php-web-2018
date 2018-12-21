@@ -11,5 +11,9 @@ final class UserTest extends TestCase
         $this->assertEquals(1,1);
     }
 
-
+    public function testUserClassExist()
+    {
+        $class = new User();
+        $this->assertInstanceOf(User::class, $class);
+    }
 }
