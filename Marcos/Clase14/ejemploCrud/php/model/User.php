@@ -4,14 +4,19 @@ require_once ('autoload.php');
 
 Class User
 {
+
+
     protected $id;
     protected $name;
     protected $email;
     protected $sexo;
 
+    
+
     public function getId()
     {
-        return $this->id;
+
+          return $this->id;
     }
 
     public function setId($id)
