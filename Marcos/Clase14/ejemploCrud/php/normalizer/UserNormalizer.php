@@ -1,6 +1,6 @@
 <?php
 require_once ('autoload.php');
-require_once ('NormalizerInterface.php');
+//require_once ('NormalizerInterface.php');
 
 Class UserNormalizer implements NormalizerInterface
 {

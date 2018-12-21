@@ -21,6 +21,10 @@
 
 <h1>Create Pet</h1>
 
+
+    //esto es un controlador
+
+
 <?php
     if ($isAPost) {
         try 
@@ -35,6 +39,8 @@
         }
     }
 ?>
+
+
 
 <form action="create-pet.php" method="post">
     <p>Pet name: <input type="text" name="name" /></p>
