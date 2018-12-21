@@ -10,6 +10,17 @@ final class UserTest extends TestCase
     {
         $this->assertEquals(1,1);
     }
+   
+    public function testUserClassExist()
+    {
+        $class = new User();
+        $this->assertInstanceOf(User::class, $class);
+    }
 
+    public function testUserClassPet()
+    {
+        $pet = new Pet();
+        $this->assertInstanceOf(Pet::class, $pet);
+    }
 
 }

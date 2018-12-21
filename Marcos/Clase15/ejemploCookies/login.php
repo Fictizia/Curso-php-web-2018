@@ -1,7 +1,7 @@
-
 <?php
-session_start();
+session_start(); //busqueda del fichero
 ?>
+
 <html>
     <head>
         <title>Las sesiones</title>
@@ -10,7 +10,7 @@ session_start();
 <body>
     <?php
     if(isset($_POST['enviar'])){
-        if(empty($_POST['usuario']) || empty($_POST['password']))
+        if(empty($_POST['usuario']) || empty($_POST['password'])) 
             echo 'Debes llenar todos los datos';
         elseif($_POST['usuario']=="test" and $_POST['password']=="test"){
             $_SESSION['usuario']=$_POST['usuario'];
