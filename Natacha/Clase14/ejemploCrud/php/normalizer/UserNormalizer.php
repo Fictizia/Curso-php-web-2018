@@ -11,6 +11,8 @@ Class UserNormalizer implements NormalizerInterface
         $newUser->setName($row['name']);
         $newUser->setEmail($row['email']);
         $newUser->setSexo($row['sexo']);
+        $newPet->validate();
+        $newUser->validate();
         
         return $newUser;
     }
@@ -22,6 +24,7 @@ Class UserNormalizer implements NormalizerInterface
         $newUser->setName($name);
         $newUser->setEmail($email);
         $newUser->setSexo($sexo);
+        $newUser->validate();
         
         return $newUser;
     }
