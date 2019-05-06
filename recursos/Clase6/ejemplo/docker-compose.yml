@@ -1,4 +1,4 @@
-version: '3.3'
+version: '3'
 
 services:
    db:
@@ -8,10 +8,16 @@ services:
      restart: always
      environment:
        MYSQL_ROOT_PASSWORD: rootpass
-       MYSQL_DATABASE: clase6
-       MYSQL_USER: me
-       MYSQL_PASSWORD: mypass
+       MYSQL_DATABASE: clase13
+       MYSQL_USER: devuser
+       MYSQL_PASSWORD: devpass
+     ports:
+       - "9906:3306"
 
 volumes:
     db_data:
       
+# sudo mkdir /var/lib/mysql
+# docker system prune -a
+# docker volume prune
+
