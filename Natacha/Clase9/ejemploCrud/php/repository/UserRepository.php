@@ -80,8 +80,14 @@ Class UserRepository
 
     public function delete($user)
     {
+        if($user === null) {
+            throw new \Exception ('User not found',404);
+        }
         $sql = "DELETE FROM users WHERE id = {$user->getId()}";
         $result = $this->dbConnection->query($sql);
+        if($result === false) {
+            throw new \Exception ($dbConnection->error,500);
+        }
         return $result;      
     }
 

@@ -1,17 +1,11 @@
 <?php
-    require_once('./model/Pet.php');    
-    require_once('./repository/PetRepository.php');
-    require_once('./bbdd-conn.php');
-    require_once('./utils.php');
+    require_once('./autoload.php');
+
 
     //@DONE este codigo que se repite, se puede poner en un fichero aparte
     //@TODO MEDIUM con estos datos, se puede crear una clase de base de datos
     //@TODO MEGATODO: Busca una base de datos Singleton y trata de que funcione en 
     //este codigo
-
-
-    // Create connection
-    $conn = new mysqli($servername, $username, $password, $dbname, $serverport);
 
     $petRepository = new PetRepository($conn);
 

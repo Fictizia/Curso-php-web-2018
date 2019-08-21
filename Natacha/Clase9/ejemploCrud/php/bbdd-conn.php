@@ -6,15 +6,20 @@ $dbname = "clase9";
 $username = "devuser";
 $password = "devpass";
 
+
+// create connection
+
+$conn = new mysqli($servername, $username, $password, $dbname, $serverport);
+
 /*Class DataBase
 {
-    protected $servername;
-    protected $serverport;
-    protected $dbname;
-    protected $username;
-    protected $password;
 
-    public function connect()
+  private $servername;
+  private $serverport;
+  private $dbname;
+  private $username;
+  private $password;
+  public function connect()
     {
   }
 }*/

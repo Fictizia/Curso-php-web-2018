@@ -1,11 +1,5 @@
 <?php
-    require_once('./bbdd-conn.php');
-    require_once('./model/User.php');    
-    require_once('./repository/UserRepository.php');
-    require_once('./utils.php');
-
-    // Create connection
-    $conn = new mysqli($servername, $username, $password, $dbname, $serverport);
+    require_once('./autoload.php');
 
     $userRepository = new UserRepository($conn);
     
@@ -19,8 +13,11 @@
 
     $user = $userRepository->getById($userId);
     $deleted = $userRepository->delete($user);
+    /* todo * ver ejemplo julieta clase 13 */
+
     if ($deleted) {
         echo "<p> user properly deleted </p>";
+
     } else {
         echo "<p> error: not deleted </p>";
         echo "<p> $conn->error() </p>";
